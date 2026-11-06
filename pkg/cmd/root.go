@@ -35,6 +35,8 @@ func Run() {
 
 	Use.PersistentFlags().BoolP("use-defaults", "f", false, "Uses default values in project.json instead of prompting the user")
 	Use.PersistentFlags().StringP("log-level", "l", "error", "log-level for output")
+	Use.Flags().String("values", "", "JSON file whose values override project.json; implies non-interactive")
+	Use.Flags().String("from", "", "Run the template from this source directory instead of the registry")
 	Template.AddCommand(Use)
 
 	Template.AddCommand(Validate)

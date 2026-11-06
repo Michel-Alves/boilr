@@ -30,6 +30,13 @@ type Interface interface {
 
 	// Returns the metadata of the template.
 	Info() Metadata
+
+	// Validates the given values against the template context and, if all
+	// are valid, uses them instead of the defaults (implies UseDefaultValues).
+	OverrideValues(map[string]interface{}) error
+
+	// Returns the values the template renders with, choices resolved.
+	EffectiveValues() map[string]interface{}
 }
 
 func (t dirTemplate) Info() Metadata {
